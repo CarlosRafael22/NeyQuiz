@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import strings from '../src/utils/strings'
 import { QuizBackground, Widget, Footer, QuizContainer, QuizLogo, GitHubCorner } from '../src/components'
 import Form from '../src/components/Form'
@@ -21,7 +20,7 @@ export default function Home() {
 
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/omariosouto" />
+      <GitHubCorner projectUrl="https://github.com/CarlosRafael22/NeyQuiz" />
     </QuizBackground>
   );
 }
