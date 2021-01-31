@@ -12,7 +12,6 @@ const RadioOption = ({questionName, option, onSelect, chosen, isCorrect}) => (
 )
 
 const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback, onBackPress }) => {
-    console.log(question, index, numberOfQuestions, onChoosenOptionCallback)
     const [chosenOption, setChosenOption] = React.useState(null)
     console.log('CHOSEN OPTION: ', chosenOption)
     const { image, resultImage, title, description, answer, alternatives } = question
@@ -23,10 +22,10 @@ const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback,
     const soundForWrong = new Howl({ src: ['/faustao_errou.mp3'] });
 
     const getResult = () => {
-        console.log('RESULT WITH: ', chosenOption)
+        // console.log('RESULT WITH: ', chosenOption)
         if (chosenOption === null) return null
         const ret = (chosenOption === answer)
-        console.log(ret)
+        // console.log(ret)
         return ret
     }
 
@@ -48,22 +47,14 @@ const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback,
 
     const playAudio = (hasChosenCorrectOption) => {
         console.log('----------  VAI TOCAR --------------------------')
-        // const sound = new Howl({
-        //     src: ['/faustao_errou.mp3'],
-        //     // autoplay: true
-        // });
-        if (hasChosenCorrectOption === null) {
-            console.log('DONT PLAYYYYYYYYY')
-        } else if (!hasChosenCorrectOption) {
+        if (hasChosenCorrectOption === null) return
+        if (!hasChosenCorrectOption) {
             soundForWrong.play()
         } else {
-            console.log('AUDIO DO CORRETOOOOO')
             soundForRight.play()
         }
     }
 
-    // Need this because one audio is longer than the other
-    // const timeAccordingToResult = hasChosenCorrectOption ? 3000 : 2000
 
     React.useEffect(() => {
         console.log('DEU RENDER NO COMPONENT!!!!!!!!!!!!!!!!!!!!!!')
