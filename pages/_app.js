@@ -36,8 +36,10 @@ export default function App({ Component, pageProps }) {
         rel="stylesheet" 
         href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
+      <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+      {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */}
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
