@@ -10,7 +10,7 @@ const Image = ({ chosenOption, imagePath }) => {
                         src={imagePath}
                         alt='Description'
                         layout="fill"
-                        objectFit="cover"
+                        objectFit="fill"
                     />
                 )
                 : (
@@ -18,7 +18,7 @@ const Image = ({ chosenOption, imagePath }) => {
                     style={{
                         width: '100%',
                         height: '150px',
-                        objectFit: 'cover',
+                        objectFit: 'fill',
                     }}
                     src={imagePath}
                     alt='Description'
