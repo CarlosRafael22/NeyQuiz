@@ -1,7 +1,7 @@
 import { QuizBackground, QuizContainer, Question, Widget } from '../../src/components'
 import questions from '../../src/utils/questions'
 import { OptionStyle } from '../../src/components/Question/styles'
-import { ButtonStyle } from '../../src/components/Quiz/styles'
+import { ButtonStyle, TwitterAnchor } from '../../src/components/Quiz/styles'
 
 const QuizReview = ({answers, resetQuiz}) => {
     // Questao {answer[0]} - {answers[1]}
@@ -10,37 +10,35 @@ const QuizReview = ({answers, resetQuiz}) => {
         <>
         <Widget>
           <Widget.Header>
-          <h3>Voce terminou o Quiz com os resultados:</h3>
+          <h3 style={{ lineHeight: '1.2'}}>Não que nem Neymar, mas até que deu para fazer uns golzinhos.<br /> <br />Se liga no placar:</h3>
           </Widget.Header>
           <Widget.Content>
               {Object.entries(answers).map(answer => {
                   console.log(answer)
-                  return <OptionStyle isCorrect={answer[1]}>{`Questao ${answer[0]} - ${answer[1] ? 'ACERTOU' : 'ERROU'}`}</OptionStyle>
+                  return (<OptionStyle isCorrect={answer[1]}>
+                      {`Questão ${answer[0]} - ${answer[1] ? 'Acertou ' : 'Errou '}`}
+                      {/* {answer[1] ? <i class="fas fa-bullseye"></i> : <i class="fas fa-times"></i>} */}
+                      </OptionStyle>)
               })}
               <div style={{ textAlign: 'center' }}>
+                
+                <TwitterAnchor
+                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                    className="fa fa-twitter"
+                    data-text="Acabei de fazer o Ney Quiz. Quero ver se tu conhece as tuitadas violentas de Neymar!"
+                    data-url="https://ney-quiz.carlosrafael22.vercel.app"
+                    data-hashtags="NeyQuiz"
+                    data-related="CR_Rafael22,neymarjr"
+                    data-lang="pt"
+                    data-show-count="false"
+                >Tweetar</TwitterAnchor>
                 <ButtonStyle onClick={resetQuiz}><i class="fas fa-redo" /> Fazer de novo</ButtonStyle>
-                <a style={{ display: 'block' }} href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </div>
               </Widget.Content>
         </Widget>
         </>
     )
 }
-
-const Audio = () => (
-    <>
-    <audio id="correctAnswerAudio" src="/faustao_errou.mp3" />
-        {/* <source src="horse.ogg" type="audio/ogg" />
-        <source src="/src/assets/faustao_errou.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-    </audio> */}
-    <audio id="wrongAnswerAudio">
-        {/* <source src="horse.ogg" type="audio/ogg" /> */}
-        <source src="/faustao_errou.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-    </audio>
-    </>
-)
 
 const IMAGES = {
     bg: 'https://uploads.metropoles.com/wp-content/uploads/2019/12/16173754/Neymar-psg-100.jpg',
@@ -56,8 +54,8 @@ const Quiz = () => {
     const numberOfQuestions = questions.length
 
     const onChoosenOptionCallbackHandler = ({ hasChosenCorrectOption, chosenOption}) => {
-        updateAnswers(prevAnswers => ({...prevAnswers, [currentQuestion]: hasChosenCorrectOption }))
         setCurrentQuestion(prevQuestion => currentQuestion + 1)
+        updateAnswers(prevAnswers => ({...prevAnswers, [currentQuestion]: hasChosenCorrectOption }))
         // setBgImage(hasChosenCorrectOption ? IMAGES['goal'] : IMAGES['miss'])
     }
 
@@ -73,7 +71,6 @@ const Quiz = () => {
 
     return (
         <QuizBackground backgroundImage={bgImage}>
-            <Audio />
             <QuizContainer>
                 {!finishedQuiz && (
                     <Question
