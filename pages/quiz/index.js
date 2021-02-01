@@ -3,6 +3,7 @@ import { QuizBackground, QuizContainer, Question, Widget } from '../../src/compo
 import questions from '../../src/utils/questions'
 import { OptionStyle } from '../../src/components/Question/styles'
 import { ButtonStyle, TwitterAnchor } from '../../src/components/Quiz/styles'
+import { TwitterShareButton } from 'react-twitter-embed'
 
 const QuizReview = ({userName, answers, resetQuiz}) => {
     return (
@@ -20,7 +21,7 @@ const QuizReview = ({userName, answers, resetQuiz}) => {
               })}
               <div style={{ textAlign: 'center' }}>
                 
-                <TwitterAnchor
+                {/* <TwitterAnchor
                     href="https://twitter.com/share?ref_src=twsrc%5Etfw"
                     className="fa fa-twitter"
                     data-text="Acabei de fazer o Ney Quiz. Quero ver se tu conhece as tuitadas violentas de Neymar!"
@@ -29,7 +30,15 @@ const QuizReview = ({userName, answers, resetQuiz}) => {
                     data-related="CR_Rafael22,neymarjr"
                     data-lang="pt"
                     data-show-count="false"
-                >Tweetar</TwitterAnchor>
+                >Tweetar</TwitterAnchor> */}
+                <TwitterShareButton
+                    url={'https://ney-quiz.carlosrafael22.vercel.app'}
+                    options={{
+                        text: 'Acabei de fazer o Ney Quiz. Quero ver se tu conhece as tuitadas violentas de Neymar! #NeyQuiz',
+                        via: 'CR_Rafael22',
+                        size: 'large' 
+                    }}
+                />
                 <ButtonStyle onClick={resetQuiz}><i class="fas fa-redo" /> Fazer de novo</ButtonStyle>
               </div>
               </Widget.Content>
