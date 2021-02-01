@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -7,6 +7,7 @@ const QuizContainer = styled.div`
   margin: auto 10%;
   @media screen and (max-width: 500px) {
     margin: auto;
+    ${({ finishedQuiz }) => finishedQuiz && css`margin-top: 3rem;`}
     padding: 15px;
   }
 `;

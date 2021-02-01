@@ -82,7 +82,7 @@ const Quiz = () => {
 
     return (
         <QuizBackground backgroundImage={bgImage}>
-            <QuizContainer>
+            <QuizContainer finishedQuiz={finishedQuiz}>
                 {!finishedQuiz && (
                     <Question
                         question={questions[currentQuestion]}
