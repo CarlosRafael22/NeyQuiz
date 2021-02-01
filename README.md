@@ -1,14 +1,8 @@
-# AluraQuiz Base
+# Ney Quiz
 
-Seja bem vindo ao projeto base do AluraQuiz!
+Projeto com o intuito de testar os conhecimentos da galera que é fã de Neymar com alguns tweets dele. Mais como uma brincadeira e para praticar conhecimentos adquiridos na Imersão da Alura.
 
-![Capa do Projeto](/_docs/capa.png)
+![Capa do Projeto](/_docs/NeyQuiz.png)
 
-# Onde está o Layout base?
-- [Link](https://www.figma.com/file/cg1MIzSRRss8ggpypQbmdD/AluraQuiz?node-id=0%3A1)
-
-
-# Como pegar cores tema diferentes para minha app?
-
-Você pode dar uma olhada nesse link e separar uma palheta que combine com sua imagem de background :) :
-- https://material-ui.com/customization/color/#playground
+# Twitter
+No final do quiz você pode compartilhar no Twitter que fez o quiz. Próxima funcionalidade será compartilhar o resultado que teve.
