@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={strings.bg}>
       <QuizContainer>
-        <QuizLogo />
+        {/* <QuizLogo /> */}
         <Widget>
           <Widget.Header>
             <h1>{strings.title}</h1>
