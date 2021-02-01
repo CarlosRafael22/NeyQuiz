@@ -10,7 +10,7 @@ const InputName = styled.input`
     outline: none;
     font-size: 14px;
     margin-bottom:15px;
-    padding: 15px;
+    padding: 10px;
 `;
 
 

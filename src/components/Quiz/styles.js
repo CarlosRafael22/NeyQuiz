@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import db from '../../../db.json'
 
 export const ButtonStyle = styled.button`
-    background-color: green;
+    background-color: ${db.theme.colors.success};
     border-radius: 0.2rem;
     border: 0;
     padding: 0.8rem;

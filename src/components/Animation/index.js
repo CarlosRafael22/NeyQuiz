@@ -20,7 +20,7 @@ const Animation = ({ isCorrect }) => {
     return (
         <AnimationStyle>
             <Lottie options={options}
-                height={100}
+                height={50}
                 width={100}
             />
         </AnimationStyle>

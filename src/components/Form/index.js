@@ -20,7 +20,7 @@ const Form = () => {
     }
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} style={{ padding: '0 1.6rem', marginBottom: '1rem' }}>
             <InputStyle value={name} onChange={onChangeHandler} />
             <ButtonStyle disabled={!name}>Siga la pelota...</ButtonStyle>
         </form>
