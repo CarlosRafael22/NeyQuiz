@@ -1,30 +1,16 @@
-import NextImage from 'next/image'
 
 const Image = ({ chosenOption, imagePath }) => {
     return (
         <div style={{width: '100%', height: '150px', position: 'relative'}}>
-            {
-                chosenOption !== null
-                ? (
-                    <NextImage
-                        src={imagePath}
-                        alt='Description'
-                        layout="fill"
-                        objectFit="fill"
-                    />
-                )
-                : (
-                    <img
-                    style={{
-                        width: '100%',
-                        height: '150px',
-                        objectFit: 'fill',
-                    }}
-                    src={imagePath}
-                    alt='Description'
-                />
-                )
-            }
+            <img
+                style={{
+                    width: '100%',
+                    height: '150px',
+                    objectFit: 'fill',
+                }}
+                src={imagePath}
+                alt='Question Image'
+            />
         </div>
     )
 }
