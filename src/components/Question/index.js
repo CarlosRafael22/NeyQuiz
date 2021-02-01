@@ -13,26 +13,22 @@ const RadioOption = ({questionName, option, onSelect, chosen, isCorrect}) => (
 
 const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback, onBackPress }) => {
     const [chosenOption, setChosenOption] = React.useState(null)
-    console.log('CHOSEN OPTION: ', chosenOption)
+    // console.log('CHOSEN OPTION: ', chosenOption)
     const { image, resultImage, title, description, answer, alternatives } = question
-    // const hasChosenCorrectOption = chosenOption !== null ? (chosenOption == answer) : false
     const questionName = `question_${index}`
-    console.log('QUESTION ---- ', chosenOption, answer)
+    // console.log('QUESTION ---- ', chosenOption, answer)
     const soundForRight = new Howl({ src: ['/eh_tetra.mp3'] });
     const soundForWrong = new Howl({ src: ['/faustao_errou.mp3'] });
 
     const getResult = () => {
-        // console.log('RESULT WITH: ', chosenOption)
         if (chosenOption === null) return null
         const ret = (chosenOption === answer)
-        // console.log(ret)
         return ret
     }
 
     const selectOption = (optionIndex) => {
-        console.log('Choose: ', chosenOption)
         setChosenOption(optionIndex)
-        console.log('SELECTED: ', optionIndex, hasChosenCorrectOption, chosenOption)
+        // console.log('SELECTED: ', optionIndex, hasChosenCorrectOption, chosenOption)
         // setChosenOption(prevOption => {
         //     console.log('ATUALIZOU OPTION: ', prevOption, optionIndex)
         //     // setTimeout(() => {
@@ -46,7 +42,6 @@ const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback,
     }
 
     const playAudio = (hasChosenCorrectOption) => {
-        console.log('----------  VAI TOCAR --------------------------')
         if (hasChosenCorrectOption === null) return
         if (!hasChosenCorrectOption) {
             soundForWrong.play()
@@ -57,25 +52,19 @@ const Question = ({ question, index, numberOfQuestions, onChoosenOptionCallback,
 
 
     React.useEffect(() => {
-        console.log('DEU RENDER NO COMPONENT!!!!!!!!!!!!!!!!!!!!!!')
-        // console.log('ATUALIZOU OPTION: ', prevOption, optionIndex)
+        // console.log('DEU RENDER NO COMPONENT!!!!!!!!!!!!!!!!!!!!!!')
         playAudio(hasChosenCorrectOption)
         if (chosenOption !== null) {
             setTimeout(() => {
-                console.log('CHOSEN AGORA: ', chosenOption)
                 const hasChosenCorrectOption = getResult()
                 // playAudio(hasChosenCorrectOption)
-                console.log('AGORA VAI ', hasChosenCorrectOption, chosenOption)
                 onChoosenOptionCallback({ hasChosenCorrectOption, chosenOption })
             }, hasChosenCorrectOption ? 3000 : 2000)
         }
     })
 
     const hasChosenCorrectOption = getResult()
-    console.log('hasChosenCorrectOption: ', hasChosenCorrectOption)
     const imagePath = chosenOption !== null ? resultImage : image
-    // playAudio(hasChosenCorrectOption)
-    console.log('IMAGE PATH: ', imagePath)
 
     return (
         <Widget>

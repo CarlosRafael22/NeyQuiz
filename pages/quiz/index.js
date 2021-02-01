@@ -5,8 +5,6 @@ import { OptionStyle } from '../../src/components/Question/styles'
 import { ButtonStyle, TwitterAnchor } from '../../src/components/Quiz/styles'
 
 const QuizReview = ({userName, answers, resetQuiz}) => {
-    // Questao {answer[0]} - {answers[1]}
-    console.log(Object.entries(answers), Object.values(answers).length, Object.entries(answers).length)
     return (
         <>
         <Widget>
@@ -55,7 +53,6 @@ const Quiz = () => {
     const numberOfQuestions = questions.length
     const router = useRouter()
     const { userName } = router.query
-    console.log('ROUTEEEEEEEEEEEEEEEEEEEEEEEE ', router, userName)
 
     const onChoosenOptionCallbackHandler = ({ hasChosenCorrectOption, chosenOption}) => {
         setCurrentQuestion(prevQuestion => currentQuestion + 1)
@@ -70,7 +67,7 @@ const Quiz = () => {
     }
 
     const renderPreviousQuestion = () => setCurrentQuestion(currentQuestion - 1)
-    console.log('QUESTION IS: ', currentQuestion, questions.length, answers)
+    // console.log('QUESTION IS: ', currentQuestion, questions.length, answers)
     const finishedQuiz = currentQuestion >= questions.length
 
     return (
