@@ -15,7 +15,7 @@ const QuizReview = ({userName, answers, resetQuiz}) => {
           <Widget.Content>
               {Object.entries(answers).map((answer, index) => {
                   return (<OptionStyle isCorrect={answer[1]} key={`result_${index}`}>
-                      {`Questão ${answer[0]} - ${answer[1] ? 'Acertou ' : 'Errou '}`}
+                      {`Questão ${parseInt(answer[0]) + 1} - ${answer[1] ? 'Acertou ' : 'Errou '}`}
                       {/* {answer[1] ? <i class="fas fa-bullseye"></i> : <i class="fas fa-times"></i>} */}
                       </OptionStyle>)
               })}
