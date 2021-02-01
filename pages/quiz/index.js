@@ -12,9 +12,8 @@ const QuizReview = ({userName, answers, resetQuiz}) => {
           <h3 style={{ lineHeight: '1.2'}}>Não que nem Neymar, mas até que deu para fazer uns golzinhos.<br /> <br />{userName}, se liga no placar:</h3>
           </Widget.Header>
           <Widget.Content>
-              {Object.entries(answers).map(answer => {
-                  console.log(answer)
-                  return (<OptionStyle isCorrect={answer[1]}>
+              {Object.entries(answers).map((answer, index) => {
+                  return (<OptionStyle isCorrect={answer[1]} key={`result_${index}`}>
                       {`Questão ${answer[0]} - ${answer[1] ? 'Acertou ' : 'Errou '}`}
                       {/* {answer[1] ? <i class="fas fa-bullseye"></i> : <i class="fas fa-times"></i>} */}
                       </OptionStyle>)
