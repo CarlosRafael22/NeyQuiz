@@ -13,7 +13,10 @@ const Form = () => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault()
-        router.push('/quiz')
+        router.push({
+            pathname: '/quiz',
+            query: { userName: name }
+        })
     }
 
     return (

@@ -1,16 +1,17 @@
+import { useRouter } from 'next/router'
 import { QuizBackground, QuizContainer, Question, Widget } from '../../src/components'
 import questions from '../../src/utils/questions'
 import { OptionStyle } from '../../src/components/Question/styles'
 import { ButtonStyle, TwitterAnchor } from '../../src/components/Quiz/styles'
 
-const QuizReview = ({answers, resetQuiz}) => {
+const QuizReview = ({userName, answers, resetQuiz}) => {
     // Questao {answer[0]} - {answers[1]}
     console.log(Object.entries(answers), Object.values(answers).length, Object.entries(answers).length)
     return (
         <>
         <Widget>
           <Widget.Header>
-          <h3 style={{ lineHeight: '1.2'}}>Não que nem Neymar, mas até que deu para fazer uns golzinhos.<br /> <br />Se liga no placar:</h3>
+          <h3 style={{ lineHeight: '1.2'}}>Não que nem Neymar, mas até que deu para fazer uns golzinhos.<br /> <br />{userName}, se liga no placar:</h3>
           </Widget.Header>
           <Widget.Content>
               {Object.entries(answers).map(answer => {
@@ -52,6 +53,9 @@ const Quiz = () => {
     const [bgImage, setBgImage] = React.useState(IMAGES['bg'])
     const [answers, updateAnswers] = React.useState({})
     const numberOfQuestions = questions.length
+    const router = useRouter()
+    const { userName } = router.query
+    console.log('ROUTEEEEEEEEEEEEEEEEEEEEEEEE ', router, userName)
 
     const onChoosenOptionCallbackHandler = ({ hasChosenCorrectOption, chosenOption}) => {
         setCurrentQuestion(prevQuestion => currentQuestion + 1)
@@ -83,7 +87,7 @@ const Quiz = () => {
                     />
                 )}
                 {finishedQuiz && (
-                    <QuizReview answers={answers} resetQuiz={resetQuiz} />
+                    <QuizReview userName={userName} answers={answers} resetQuiz={resetQuiz} />
                 )}
             </QuizContainer>
         </QuizBackground>
